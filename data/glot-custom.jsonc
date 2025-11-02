@@ -47,9 +47,13 @@
         "ja": "確認日",
         "en": "Disaster Date"
     },
+    "act_category": {
+        "ja": "【カテゴリ】",
+        "en": "Category"
+    },
     "act_title": {
         "ja": "【題名】",
-        "en": "[Subject] "
+        "en": "Subject"
     },
     "act_memo": {
         "ja": "",

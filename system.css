@@ -30,7 +30,7 @@ h4 {
 
 h5 {
     font-size: 1.2em !important;
-    font-weight: bold;
+    font-weight: bold !important;
     background-color: #FFFFFF;
 }
 
@@ -200,10 +200,6 @@ span.fs-14 {
 .modal-body {
     font-size: 14px !important;
     overflow-x: hidden;
-}
-
-.btn-max {
-    width: 40px;
 }
 
 input[type="search"] {
