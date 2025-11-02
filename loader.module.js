@@ -32,7 +32,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', gId);
+    gtag('config', gId, { 'cookie_domain': 'armd-02.github.io' });
 
     // 4) 初期化
     cMapMaker.init();
