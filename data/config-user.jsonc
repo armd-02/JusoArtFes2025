@@ -43,18 +43,18 @@
     "icon": {
         "fgPath": "icon",
         "bgPath": "image",
-        "shadow": 0.65,
-        "attention": 0.65,
-        "green": 0.65,
-        "middle": 0.65,
+        "shadow": 0.7,
+        "attention": 0.7,
+        "green": 0.7,
+        "middle": 0.7,
         "visited": 0.5,
-        "normal": 0.65,
-        "flag": 0.5,
+        "normal": 0.7,
+        "flag": 0.6,
         "textFont": [
             "Noto Sans Regular"
         ], // 使用可能なフォント（spriteに依存）
         "textSize": 10.5,
-        "textViewZoom": 16 // アイコンに文字を表示するズームレベル
+        "textViewZoom": 14 // アイコンに文字を表示するズームレベル
     },
     "poiView": {
         "poiActLoad": true, // 起動時にActivityを読み込むか
@@ -66,7 +66,7 @@
         },
         "editZoom": {
             // 編集時に追加するpoiZoom
-            "JusoArtFes2025": 14
+            "JusoArtFes": 14
         }
     },
     "selectItem": { // 選択リストの内容を手動記載 / 空の時は "" とする

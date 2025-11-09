@@ -31,6 +31,8 @@ class CMapMaker {
         this.moveMapBusy = 0;
         this.changeKeywordWaitTime;
         this.scrollHints = 0;
+        this.favoriteFilter = null;
+        this.visitedFilterStatus = null;
     }
 
     init() {        // initialize
@@ -104,7 +106,6 @@ class CMapMaker {
 
             Promise.all([
                 gSheet.get(Conf.google.AppScript),
-                loadStatic(),
                 mapLibre.init(Conf), // get_zoomなどMapLibreの情報が必要なためMapLibre.init後に実行
             ]).then((results) => {
                 // MapLibre add control
@@ -141,7 +142,7 @@ class CMapMaker {
                         winCont.viewSplash(false)
                         setTimeout(() => { cMapMaker.eventMoveMap() }, 300) // 本来なら不要だがfirefoxだとタイミングの関係で必要
                         if (UrlParams.node || UrlParams.way || UrlParams.relation) {
-                            let keyv = Object.entries(UrlParams).find(([key, value]) => value !== undefined);
+                            let keyv = Object.entries(UrlParams).find(([key, value]) => value !== undefined)
                             let param = keyv[0] + "/" + keyv[1]
                             let subparam = param.split(".") // split child elements(.)
                             let geojson = poiCont.get_osmid(subparam[0]).geojson
@@ -159,15 +160,17 @@ class CMapMaker {
                 if (Conf.poiView.poiActLoad) {
                     let osmids = poiCont.pois().acts.map((act) => { return act.osmid; });
                     osmids = osmids.filter(Boolean);
-                    if (osmids.length > 0 && !Conf.static.mode) {
+                    if (osmids.length > 0 && !Conf.static.mode) {   // osmidsがある&非static時
                         basic.retry(() => overPassCont.getOsmIds(osmids), 5).then((geojson) => {
                             poiCont.addGeojson(geojson)
                             poiCont.setActlnglat()
                             init_close();
                         });
-                    } else {
-                        poiCont.setActlnglat();
-                        init_close()
+                    } else {    // static時
+                        loadStatic().then(() => {
+                            poiCont.setActlnglat();
+                            init_close()
+                        })
                     }
                 } else {
                     init_close()
@@ -234,9 +237,9 @@ class CMapMaker {
         let targets = poiCont.getTargets()  //
         console.log("viewArea: " + targets.join())
         targets.forEach((target) => {
-            let osmConf = Conf.osm[target] == undefined ? { expression: { viewArea: true } } : Conf.osm[target]
+            let osmConf = Conf.osm[target] == undefined ? { expression: { viewArea: false } } : Conf.osm[target]
             if (osmConf.expression.viewArea) {   // viewArea: trueが対象
-                let pois = poiCont.getPois(target, true)
+                let pois = poiCont.getPois([target], false)
                 let titleTag = ["format", ["case", ["all", ["has", "ref"], ["!=", ["get", "ref"], ""]],
                     ["case", ["has", "local_ref"],
                         ["concat", "(", ["get", "ref"], "/", ["get", "local_ref"], ") ", ["coalesce", ["get", "name"], ""]],
@@ -367,6 +370,7 @@ class CMapMaker {
 
     // OSMデータを取得して画面表示
     updateView(cat) {
+        console.log("updateView Start.")
         return new Promise((resolve) => {
             this.updateOsmPoi().then((status) => {
                 switch (status.update) {

@@ -3,6 +3,10 @@
         "columns": {
             "common": [
                 {
+                    "id": "actid",
+                    "hidden": true
+                },
+                {
                     "id": "osmid",
                     "hidden": true
                 },
@@ -31,6 +35,7 @@
             ],
             "poiFields": [
                 "id",
+                "id",
                 "category",
                 "name",
                 "title",
@@ -39,6 +44,7 @@
             ],
             "actFields": [ //#付きはOSMタグ、ただし#categoryのみ内部判定結果
                 "#id",
+                "id",
                 "category",
                 "#name",
                 "title",

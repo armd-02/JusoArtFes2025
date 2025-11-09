@@ -1,6 +1,6 @@
 {
     "osm": {
-        "JusoArtFes2025": {
+        "JusoArtFes": {
             "overpass": [
                 "node[\"place\"=\"neighbourhood\"]",
                 "nwr[\"amenity\"]",
