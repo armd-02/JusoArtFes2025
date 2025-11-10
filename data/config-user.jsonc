@@ -111,7 +111,7 @@
         "image": true
     },
     "etc": {
-        "localSave": "", // 訪問済み機能フラグ(有効時はアプリ名、無効時は"")
+        "localSave": "JusoArtFes2025", // 訪問済み機能フラグ(有効時はアプリ名、無効時は"")
         "reverseIcon": false, // true:訪問済みを目立たせる / false:訪問済みを目立たせない
         "editMode": false, // 編集メニューの表示/非表示
         "splashUrl": "./image/splash.jpg",
@@ -142,7 +142,6 @@
             }
         ],
         "mainSystem": [
-            /*
             {
                 "glot-model": "export_visited",
                 "linkto": "javascript:poiStatusCont.export()",
@@ -153,7 +152,6 @@
                 "linkto": "javascript:poiStatusCont.import()",
                 "divider": false
             }
-            */
         ],
         // 詳細表示のハンバーガーメニュー
         "modal": [
