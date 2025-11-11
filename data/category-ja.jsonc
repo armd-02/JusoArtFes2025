@@ -152,6 +152,7 @@
             "alternative": "治療院"
         },
         "office": {
+            "association": "非営利組織",
             "company": "会社",
             "coworking": "コワーキング(事務所)",
             "courier": "宅配便/宅急便",

@@ -159,11 +159,12 @@ class OSMbasic {
         if (Conf.etc.localSave !== "") {
             let poiStatus = poiStatusCont.getValueByOSMID(tags.id)
             html += `<div class="flex-row mt-1 me-3"><i class="fa-solid fa-person-walking me-1"></i>`;
-            html += `${glot.get("visited")} <input type="checkbox" id="visited" class="m-2" name="${tags.id}" ${poiStatus[PoiStatusIndex.VISITED] ? "checked" : ""}/>`;
+            html += `<input type="checkbox" id="visited" class="m-2" name="${tags.id}" ${poiStatus[PoiStatusIndex.VISITED] ? "checked" : ""}/>${glot.get("visited")}`;
             html += `</div><div class="flex-row mt-1 me-3"><i class="fa-solid fa-heart me-1"></i>`;
-            html += `${glot.get("favorite")} <input type="checkbox" id="favorite" class="m-2" name="${tags.id}" ${poiStatus[PoiStatusIndex.FAVORITE] ? "checked" : ""}/>`;
+            html += `<input type="checkbox" id="favorite" class="m-2" name="${tags.id}" ${poiStatus[PoiStatusIndex.FAVORITE] ? "checked" : ""}/>${glot.get("favorite")}`;
             html += `</div><div class="flex-row mt-1 me-3 d-flex text-nowrap align-items-center w-100">`;
             let memo = poiStatus[PoiStatusIndex.MEMO] !== undefined ? poiStatus[PoiStatusIndex.MEMO] : "";
+            html += `<i class="fa-solid fa-note-sticky"></i>`;
             html += `<input type="text" id="visited-memo" maxlength="140" size="20" class="form-control ms-2" placeholder="${glot.get("reservation_memo")}" value="${memo}" /></div>`
             elements++;
         }

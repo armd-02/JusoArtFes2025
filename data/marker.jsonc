@@ -160,6 +160,7 @@
                 "alternative": "house-medical-solid.png"
             },
             "office": {
+                "association": "briefcase.png",
                 "company": "briefcase.png",
                 "courier": "truck.png",
                 "coworking": "suitcase.png",

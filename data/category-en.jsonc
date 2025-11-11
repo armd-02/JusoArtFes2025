@@ -152,6 +152,7 @@
             "yes": "entrance"
         },
         "office": {
+            "association": "association",
             "company": "company",
             "coworking": "coworking",
             "courier": "courier",
