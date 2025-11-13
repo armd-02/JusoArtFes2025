@@ -38,6 +38,21 @@
                 "name"
             ]
         },
+        "publicArt": {
+            "overpass": [
+                "nwr[\"tourism\"=\"artwork\"]"
+            ],
+            "tags": [
+                "tourism=artwork"
+            ],
+            "expression": {
+                "poiView": true, // true時はアイコン表示
+                "viewArea": false,
+                "stroke": "#000000",
+                "stroke-width": 4,
+                "fill-opacity": 0.5
+            }
+        },
         "Green": {
             "overpass": [
                 "nwr[\"natural\"=\"tree_row\"]",

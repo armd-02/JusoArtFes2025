@@ -62,6 +62,8 @@
         "poiZoom": {
             // アイコンの前後位置は後ろの方が手前になる
             "activity": 8,
+            "JusoArtFes": 8,
+            "publicArt": 14,
             "Green": 15
         },
         "editZoom": {
@@ -76,7 +78,7 @@
     },
     "listTable": {
         "backgroundImage": "./image/bgimage.png",
-        "height": 0.6, // リスト時の高さ(1を最大とした割合)
+        "height": 0.8, // リスト時の高さ(1を最大とした割合)
         "category": "activity", // カテゴリ選択 / activity:アクティビティリスト / tags:タグ / menu: タグベースの手動カテゴリ
         "target": "activity", // targets: / activity:google sheetsを表示
         "allActs": true, // true: 全てのactivityを常に表示 / false: 画面内のActivityのみ表示
@@ -97,9 +99,10 @@
         "targetName": "activity"
     },
     "static": {
-        "mode": false,
+        "mode": true,
         "osmjsons": [
-            ""
+            "./data/st_artwork.jsonc",
+            "./data/st_stores.jsonc"
         ]
     },
     "wikipedia": {
